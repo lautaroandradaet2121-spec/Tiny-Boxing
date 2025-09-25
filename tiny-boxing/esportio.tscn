@@ -30,6 +30,8 @@ position = Vector2(718, 480.00003)
 scale = Vector2(0.08, 0.071500026)
 texture = ExtResource("4_he3go")
 
+[node name="RigidBody2D" type="RigidBody2D" parent="CharacterBody2D3/char_test"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
 position = Vector2(718.00006, 479.99997)
 scale = Vector2(0.07999996, 0.07149999)
