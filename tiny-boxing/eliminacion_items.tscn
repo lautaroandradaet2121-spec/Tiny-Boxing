@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://hq6tt008idhh"]
+
+[ext_resource type="Texture2D" uid="uid://dqnivomc3p6kb" path="res://Proyecto nuevo (1).png" id="1_2giid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfmdm"]
+size = Vector2(2789, 104)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(624, 726)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-43.500015, 2.3841858e-06)
+scale = Vector2(0.6296875, 0.03703704)
+texture = ExtResource("1_2giid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(111.5, -7)
+shape = SubResource("RectangleShape2D_bfmdm")
+disabled = true
