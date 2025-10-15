@@ -1,6 +1,6 @@
 extends Node
 const item_1 = preload("res://items.tscn")
-@onready var eliminador = $eliminacion_items/StaticBody2D
+@onready var eliminador = $Node2D/StaticBody2D
 
 func crear_item():
 	var nuevo_item = item_1.instantiate()

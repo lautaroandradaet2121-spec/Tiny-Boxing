@@ -51,3 +51,11 @@ func _ready() -> void:
 	pass
 #	print (eliminador)	
 	
+	 Para que esto funcione, DEBES conectar la señal 'body_entered'
+ a la función _on_body_entered. Puedes hacerlo:
+# a) Desde el editor (pestaña "Nodo" en el Inspector).
+# b) Por código (en _ready, usando self.body_entered.connect(_on_body_entered)).
+	if item_col.is_colliding():
+		print("Esta colisionando con ", coll)
+		if coll.get_instance_id() == eliminador.get_instance_id():
+			self.queue_free()

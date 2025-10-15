@@ -15,6 +15,13 @@ run/main_scene="uid://bmpkjcqjgfgem"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Item_dano=""
+eliminador=""
+jugador1=""
+jugador2=""
+
 [input]
 
 Der_1={

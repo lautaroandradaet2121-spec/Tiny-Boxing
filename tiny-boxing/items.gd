@@ -1,15 +1,17 @@
 class_name items extends RigidBody2D
-@onready var eliminador = $eliminacion_items/StaticBody2D
-#const eliminador_path = preload("res://eliminacion_items.tscn")
-@onready var items_el = $eliminacion_items2D
-
 @export var posision = Vector2(0, 0)
 
+func _ready() -> void:
+	self.body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body: Node2D):
+	print("colisiona")
+		
+	if body.is_in_group("jugador1") or body.is_in_group("jugador2"):
+		print("Colisión con un objeto 'jugador'.")
+		self.queue_free()
+
+
 func _physics_process(delta: float) -> void:
-	var item_col = $RayCast2D
-	var item_a_eliminar = $items
-	if item_col.is_colliding():
-		print("Esta colisionando con ", item_col.get_collider())
-		if item_col.get_collider() == eliminador:
-			print("Si colisiono")
-			remove_child(item_a_eliminar)
+	if position.y >= 999:
+		self.queue_free()

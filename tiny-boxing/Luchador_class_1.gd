@@ -7,8 +7,8 @@ class_name Luchador_clase extends CharacterBody2D
 @export var Posicion = Vector2(0,0)
 @export var Mov_especial = false
 @export var Estado = "Idle"
-@export var Daño_golpe = 5
-@export var Daño_especial = 20
+@export var Dano_golpe = 5
+@export var Dano_especial = 20
 @export var muerto = false
 
 var Izq = ""

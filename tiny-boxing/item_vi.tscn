@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://g71legvn2esp"]
+
+[ext_resource type="Script" uid="uid://djcjp257avghd" path="res://item_vi.gd" id="1_vbbwv"]
+[ext_resource type="Texture2D" uid="uid://dg530ekuktpij" path="res://img/pelota_vida.png" id="2_ei8of"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b4j2c"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_vbbwv")
+
+[node name="RayCast2D" type="RayCast2D" parent="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, -3.8146973e-06)
+scale = Vector2(0.041145835, 0.040277775)
+texture = ExtResource("2_ei8of")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+visible = false
+shape = SubResource("CapsuleShape2D_b4j2c")

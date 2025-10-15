@@ -8,7 +8,9 @@ size = Vector2(2789, 104)
 [node name="Node2D" type="Node2D"]
 position = Vector2(624, 726)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["eliminador"]]
+collision_layer = 2
+collision_mask = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(-43.500015, 2.3841858e-06)
