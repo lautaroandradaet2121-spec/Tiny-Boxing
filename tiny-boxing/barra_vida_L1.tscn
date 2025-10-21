@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhjkkmatqc4p7"]
+
+[ext_resource type="Texture2D" path="res://img/pixil-frame-0.png" id="1_sidov"]
+[ext_resource type="Script" uid="uid://d4hxmhysq88kr" path="res://Vida-Lu1.gd" id="2_7ji5u"]
+
+[node name="barra_de_vida" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(245.25003, 90)
+scale = Vector2(0.86150014, 0.8125)
+texture = ExtResource("1_sidov")
+flip_h = true
+script = ExtResource("2_7ji5u")

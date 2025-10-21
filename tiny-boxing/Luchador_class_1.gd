@@ -3,23 +3,28 @@ class_name Luchador_clase extends CharacterBody2D
 
 # Propiedades del lucahdor
 @export var velocidad = 400
-@export var vida = 100
+@export var vida = 10
 @export var Posicion = Vector2(0,0)
 @export var Mov_especial = false
 @export var Estado = "Idle"
-@export var Dano_golpe = 5
-@export var Dano_especial = 20
+@export var Dano_golpe = 1
+@export var Dano_especial = 2
 @export var muerto = false
 
 var Izq = ""
 var Der = ""
+var golpe = ""
 
 #func cambiar_teclas(Izq_n, Der_n):
 #	Izq = Izq_n
 #	Der = Der_n
 
 func pegar():
-	pass
+	print(Dano_golpe)
+	
+	await get_tree().create_timer(3.0).timeout
+	Dano_golpe = 5
+	print(Dano_golpe)
 		
 func defender():
 	pass
@@ -34,8 +39,6 @@ func detectar_estado():
 	pass
 
 	
-func recoger_item():
-	pass
 	
 func aplicar_efecto():
 	pass
@@ -61,3 +64,5 @@ func _physics_process(delta):
 	
 	mover()
 	move_and_slide()
+	if Input.is_action_just_pressed(golpe):
+		self.pegar()
