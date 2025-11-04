@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bha2ecqadsduc"]
+
+[ext_resource type="Script" uid="uid://b6pc73dlvkyas" path="res://puno2.gd" id="1_cn6v0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocydp"]
+size = Vector2(19, 20)
+
+[node name="puno2" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 8
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_cn6v0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(9.5, 0)
+shape = SubResource("RectangleShape2D_ocydp")
