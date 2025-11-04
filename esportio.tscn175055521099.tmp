@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmpkjcqjgfgem"]
+
+[ext_resource type="Script" uid="uid://dg1nm3au23o4p" path="res://main.gd" id="1_he3go"]
+[ext_resource type="PackedScene" uid="uid://crxytexm1vya6" path="res://items.tscn" id="1_v0cdq"]
+[ext_resource type="Script" uid="uid://buktw44fmfii1" path="res://Luchador_1.gd" id="3_v0cdq"]
+[ext_resource type="Texture2D" uid="uid://c8yjexoj7hy3k" path="res://img/char_test.jpg" id="4_he3go"]
+[ext_resource type="PackedScene" uid="uid://bhjkkmatqc4p7" path="res://barra_vida_L1.tscn" id="4_sfsnc"]
+[ext_resource type="Script" uid="uid://bklw8mhewkjcf" path="res://Luchador_2.gd" id="5_he3go"]
+[ext_resource type="PackedScene" uid="uid://g71legvn2esp" path="res://item_vi.tscn" id="6_lcg6a"]
+[ext_resource type="PackedScene" uid="uid://dknbt1pwyen50" path="res://barra_vida_L2.tscn" id="8_4gk5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcg6a"]
+size = Vector2(767.1881, 1020.97925)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_he3go")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="." groups=["jugador", "jugador1"]]
+collision_mask = 3
+script = ExtResource("3_v0cdq")
+velocidad = null
+vida = null
+Posicion = null
+Mov_especial = null
+Estado = null
+Dano_golpe = null
+Dano_especial = null
+muerto = null
+
+[node name="jug_1" type="Sprite2D" parent="CharacterBody2D2"]
+position = Vector2(377.00003, 483.99997)
+scale = Vector2(0.08, 0.071500026)
+texture = ExtResource("4_he3go")
+
+[node name="colision_j1" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(376.6875, 484.74994)
+scale = Vector2(0.07999996, 0.07149999)
+shape = SubResource("RectangleShape2D_lcg6a")
+
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="." groups=["jugador", "jugador2"]]
+collision_mask = 3
+script = ExtResource("5_he3go")
+velocidad = null
+vida = null
+Posicion = null
+Mov_especial = null
+Estado = null
+Dano_golpe = null
+Dano_especial = null
+muerto = null
+
+[node name="jug_2" type="Sprite2D" parent="CharacterBody2D3"]
+position = Vector2(469.00003, 483.75)
+scale = Vector2(0.08, 0.071500026)
+texture = ExtResource("4_he3go")
+
+[node name="colision_j2" type="CollisionShape2D" parent="CharacterBody2D3"]
+position = Vector2(469.00006, 484.74994)
+scale = Vector2(0.07999996, 0.07149999)
+shape = SubResource("RectangleShape2D_lcg6a")
+
+[node name="items" parent="." instance=ExtResource("1_v0cdq")]
+position = Vector2(382, 354)
+
+[node name="Node2D" parent="." instance=ExtResource("6_lcg6a")]
+position = Vector2(689, 370)
+
+[node name="barra_de_vida" parent="." instance=ExtResource("4_sfsnc")]
+position = Vector2(-22, 5)
+
+[node name="Node2D2" parent="." instance=ExtResource("8_4gk5g")]
+position = Vector2(-36, 7)

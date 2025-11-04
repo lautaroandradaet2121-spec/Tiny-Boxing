@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dknbt1pwyen50"]
+
+[ext_resource type="Texture2D" uid="uid://dbixcrig27gif" path="res://img/L2_vil.png" id="1_hsiiw"]
+[ext_resource type="Script" uid="uid://5pqmbncbidij" path="res://Vida_Lu2.gd" id="1_x8xc0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(965.9998, 90)
+scale = Vector2(0.862, 0.813)
+texture = ExtResource("1_hsiiw")
+flip_h = true
+script = ExtResource("1_x8xc0")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bprow583wpn1l"]
+
+[ext_resource type="Texture2D" uid="uid://csc0af2gmxc16" path="res://img/estadio.png" id="1_ochjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ochjs"]
+size = Vector2(136.5, 222.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_638ev"]
+size = Vector2(132.5, 181)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 129
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(577.50006, 322.5)
+scale = Vector2(0.59635425, 0.5916667)
+texture = ExtResource("1_ochjs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(78, 437.25)
+shape = SubResource("RectangleShape2D_ochjs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1078.75, 469.5)
+shape = SubResource("RectangleShape2D_638ev")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://crxytexm1vya6"]
+
+[ext_resource type="Script" uid="uid://mmiukchuhd35" path="res://item_da.gd" id="1_aa2cp"]
+[ext_resource type="Texture2D" uid="uid://cl1s64p0xr30h" path="res://img/pelota_dano.png" id="2_aa2cp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jfxf"]
+
+[node name="items" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_aa2cp")
+
+[node name="RayCast2D" type="RayCast2D" parent="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(2.7356772, 2.4965281)
+scale = Vector2(0.8652865, 0.8500695)
+texture = ExtResource("2_aa2cp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+visible = false
+shape = SubResource("CapsuleShape2D_6jfxf")
