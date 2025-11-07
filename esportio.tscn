@@ -120,7 +120,7 @@ script = ExtResource("1_he3go")
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="." groups=["jugador", "jugador1"]]
 position = Vector2(428, 470)
-collision_mask = 3
+collision_mask = 131
 script = ExtResource("3_v0cdq")
 
 [node name="colision_j1" type="CollisionShape2D" parent="CharacterBody2D2"]
@@ -135,8 +135,8 @@ sprite_frames = SubResource("SpriteFrames_5kkbo")
 animation = &"def"
 
 [node name="CharacterBody2D3" type="CharacterBody2D" parent="." groups=["jugador", "jugador2"]]
-position = Vector2(547, 469)
-collision_mask = 3
+position = Vector2(900, 469)
+collision_mask = 131
 script = ExtResource("5_he3go")
 
 [node name="colision_j2" type="CollisionShape2D" parent="CharacterBody2D3"]
@@ -166,3 +166,4 @@ position = Vector2(-36, 7)
 z_index = -1
 
 [node name="Node2D4" parent="." instance=ExtResource("20_rkuar")]
+visible = false

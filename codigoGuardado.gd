@@ -59,3 +59,42 @@ func _ready() -> void:
 		print("Esta colisionando con ", coll)
 		if coll.get_instance_id() == eliminador.get_instance_id():
 			self.queue_free()
+
+
+
+
+# old collision for super
+
+class_name especial_atk extends RigidBody2D
+@onready var especial = false
+@onready var jug_1 = "jugador1"
+@onready var jug_2 = "jugador2"
+
+
+func _process(delta: float) -> void:
+	if position.x >= 700 or position.x <= -700:
+		self.queue_free()
+		
+func _ready() -> void:
+	
+	self.body_entered.connect(_on_body_entered)
+
+	#await get_tree().create_timer(0.3).timeout
+	#queue_free()
+	
+	
+
+
+
+func _on_body_entered(body: Node2D):
+	print("especial colisiona")
+	
+	if body.is_in_group(jug_2):
+		print("Especial colisiona con J2 ", body)
+		
+		print("Vida J2: ", body.vida)
+		body.recibir_dano(2)
+		
+		
+		print("Vida J2 tras especial: ", body.vida)
+		self.queue_free()
