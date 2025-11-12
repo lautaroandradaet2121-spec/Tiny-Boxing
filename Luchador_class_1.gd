@@ -8,10 +8,11 @@ const puno2 = preload("res://puno_2.tscn")
 @export var velocidad = 400
 @export var vida = 10
 @export var Posicion = Vector2(0,0)
-@export var Mov_especial = true
+@export var Mov_especial = false
 @export var Estado = "Idle"
 @export var Dano_golpe = 1
 @export var muerto = false
+@export var contadores_a = 0
 @onready var golpes = 0
 
 var Izq = ""
@@ -60,12 +61,17 @@ func pegar():
 	print(Dano_golpe)
 	golpes = 0
 		
+func recarga_esp():
 	
+	if Mov_especial == false and contadores_a == 0:
+		contadores_a = 1
+		await get_tree().create_timer(17).timeout
+		contadores_a = 0
+		Mov_especial = true
 	
 func defender():
 	Estado = "defendiendo"
 	velocity.x = 0
-
 	
 	
 
@@ -84,6 +90,8 @@ func defender():
 func morirse():
 	if vida <= 0:
 		muerto = true
+		await get_tree().create_timer(0.5).timeout
+		queue_free()
 	
 
 func recibir_dano(dano, es_especial = false):

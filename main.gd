@@ -47,18 +47,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	Timer_crear_items(delta)
-	
-	var luchador1 = get_tree().get_nodes_in_group("jugador1")
-	var luchador2 = get_tree().get_nodes_in_group("jugador2")
-
-	for lucha_1 in luchador1:
-		if lucha_1.vida <= 0:
-			get_tree().quit()
-			
-	for lucha_2 in luchador2:
-		if lucha_2.vida <= 0:
-			get_tree().quit()
+	Timer_crear_items(delta)	
 		
 	#await get_tree().create_timer(9.0).timeout
 	#crear_item()
