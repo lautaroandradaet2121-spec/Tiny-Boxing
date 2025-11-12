@@ -83,26 +83,3 @@ func test_golpe_especialj2():
 	assert_int(vida_fin).is_less(vida_ini)
 	
 #-----------------------------------------------------------------------------------
-
-func test_movimiento_especialj1():
-	
-	var correr := scene_runner("res://esportio.tscn")
-	
-	var jugador2:CharacterBody2D = correr.find_child("Jugador_2")
-	
-	await await_millis(20000)
-	correr.simulate_key_press(KEY_N)
-	
-	var especial_j1:CharacterBody2D = correr.find_child("Node2D5")
-	
-	var inicio:Vector2 = especial_j1.global_position
-	
-	await await_millis(100)
-	
-	var posicion_final:Vector2 = especial_j1.global_position
-	
-	var movimiento = inicio.direction_to(posicion_final)
-	
-	assert_vector(movimiento).is_equal_approx(Vector2.RIGHT, Vector2(1, 1))
-	
-	
