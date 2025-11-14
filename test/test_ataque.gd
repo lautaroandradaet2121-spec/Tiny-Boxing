@@ -1,6 +1,7 @@
 extends GdUnitTestSuite
 
 func test_golpe_j1():
+	
 	var correr := scene_runner("res://esportio.tscn")
 	
 	var jugador2:CharacterBody2D = correr.find_child("Jugador_2")
@@ -83,3 +84,64 @@ func test_golpe_especialj2():
 	assert_int(vida_fin).is_less(vida_ini)
 	
 #-----------------------------------------------------------------------------------
+
+func test_movimiento_especialj1():
+	
+	var correr := scene_runner("res://esportio.tscn")
+	
+	var jugador1:CharacterBody2D = correr.find_child("Jugador_1")
+	
+#	await await_millis(20000)
+	jugador1.Mov_especial = true
+	
+	correr.simulate_key_press(KEY_N)
+	
+	await await_millis(650)
+	
+	var especial_j1:Node2D = correr.find_child("especialJ1")
+	
+	var especial_j1_mov:CharacterBody2D = especial_j1.find_child("CharacterBody2D")
+	
+	var inicio:Vector2 = especial_j1_mov.global_position
+	
+	await await_millis(650)
+	
+	var posicion_final:Vector2 = especial_j1_mov.global_position
+	
+	var movimiento = inicio.direction_to(posicion_final)
+	
+	assert_vector(movimiento).is_equal_approx(Vector2.RIGHT, Vector2(1, 1))
+	
+	
+	
+#------------------------------------------------------------------------------------
+
+func test_movimiento_especialj2():
+	
+	var correr := scene_runner("res://esportio.tscn")
+	
+	var jugador2:CharacterBody2D = correr.find_child("Jugador_2")
+	
+#	await await_millis(20000)
+	jugador2.Mov_especial = true
+	
+	correr.simulate_key_press(KEY_P)
+	
+	await await_millis(650)
+	
+	var especial_j2:Node2D = correr.find_child("especialJ2")
+	
+	var especial_j2_mov:CharacterBody2D = especial_j2.find_child("CharacterBody2D")
+	
+	var inicio:Vector2 = especial_j2_mov.global_position
+	
+	await await_millis(650)
+	
+	var posicion_final:Vector2 = especial_j2_mov.global_position
+	
+	var movimiento = inicio.direction_to(posicion_final)
+	
+	assert_vector(movimiento).is_equal_approx(Vector2.LEFT, Vector2(1, 1))
+	
+
+	
