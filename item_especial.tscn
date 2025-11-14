@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://kgbxy5acj5m3"]
+
+[ext_resource type="Script" uid="uid://c0bivxommd8qo" path="res://item_especial.gd" id="1_2bxk8"]
+[ext_resource type="Texture2D" uid="uid://cy2ke6nru28w0" path="res://img/sprite_item_esp.png" id="1_2qdxk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7uxcn"]
+radius = 29.0
+height = 58.0
+
+[node name="item_especial" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 4
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_2bxk8")
+
+[node name="RayCast2D" type="RayCast2D" parent="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(3, 5)
+texture = ExtResource("1_2qdxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CapsuleShape2D_7uxcn")

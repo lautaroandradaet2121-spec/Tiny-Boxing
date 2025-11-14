@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmpkjcqjgfgem"]
+[gd_scene load_steps=26 format=3 uid="uid://bmpkjcqjgfgem"]
 
 [ext_resource type="Script" uid="uid://dg1nm3au23o4p" path="res://main.gd" id="1_he3go"]
 [ext_resource type="PackedScene" uid="uid://crxytexm1vya6" path="res://items.tscn" id="1_v0cdq"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://bprow583wpn1l" path="res://Esenario.tscn" id="9_bpisf"]
 [ext_resource type="Texture2D" uid="uid://cr8mek82u4pyj" path="res://img/js animations/j2/def_j2.png" id="11_6vehg"]
 [ext_resource type="Texture2D" uid="uid://cb6o3ugq11v3n" path="res://img/js animations/j2/gan_j2.png" id="13_hwldy"]
-[ext_resource type="PackedScene" uid="uid://danieuh4mwyod" path="res://mensaje_gana.tscn" id="20_rkuar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcg6a"]
 size = Vector2(1125.0009, 1814.6854)
@@ -177,11 +176,8 @@ position = Vector2(705, 682)
 [node name="barra_de_vida" parent="." instance=ExtResource("4_sfsnc")]
 position = Vector2(-22, 5)
 
-[node name="Node2D2" parent="." instance=ExtResource("8_4gk5g")]
+[node name="barra_vida_j2" parent="." instance=ExtResource("8_4gk5g")]
 position = Vector2(-36, 7)
 
 [node name="Node2D3" parent="." instance=ExtResource("9_bpisf")]
 z_index = -1
-
-[node name="Node2D4" parent="." instance=ExtResource("20_rkuar")]
-visible = false
