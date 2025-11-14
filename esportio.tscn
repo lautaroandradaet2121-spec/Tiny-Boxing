@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://3bbhfusj2c3v" path="res://img/js animations/j1/cam_1_j1.png" id="8_rkuar"]
 [ext_resource type="PackedScene" uid="uid://bprow583wpn1l" path="res://Esenario.tscn" id="9_bpisf"]
 [ext_resource type="Texture2D" uid="uid://cr8mek82u4pyj" path="res://img/js animations/j2/def_j2.png" id="11_6vehg"]
+[ext_resource type="Texture2D" uid="uid://y5fgyvnswyq3" path="res://img/js animations/j2/atk_2_j2.png" id="12_hwldy"]
 [ext_resource type="Texture2D" uid="uid://cb6o3ugq11v3n" path="res://img/js animations/j2/gan_j2.png" id="13_hwldy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcg6a"]
@@ -77,9 +78,6 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mwusq"]
-load_path = "res://.godot/imported/pixil-layer-3.png-a87e64577a2a868de669926071ce95de.ctex"
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_6vehg"]
 animations = [{
 "frames": [{
@@ -87,7 +85,7 @@ animations = [{
 "texture": ExtResource("4_tngu5")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_mwusq")
+"texture": ExtResource("12_hwldy")
 }],
 "loop": false,
 "name": &"atk",
@@ -165,7 +163,8 @@ shape = SubResource("RectangleShape2D_lcg6a")
 position = Vector2(7.5, -7)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_6vehg")
-animation = &"gan"
+animation = &"atk"
+frame_progress = 1.0
 
 [node name="items" parent="." instance=ExtResource("1_v0cdq")]
 position = Vector2(635, 690)
