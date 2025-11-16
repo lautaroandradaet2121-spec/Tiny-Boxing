@@ -1,9 +1,10 @@
 class_name J2 extends Luchador_clase
 @onready var animacion = $sprite_j2
 const especial2 = preload("res://especial_j2.tscn")
-
+@onready var sonido = $"../AudioStreamPlayer"
 
 func _ready() -> void:
+	
 	Izq = "Izq_2"
 	Der = "Der_2"
 	golpe = "Atk_2"
@@ -43,8 +44,13 @@ func ganado_pelea():
 	
 func _physics_process(delta):
 	
+	if recibe_dano == true:
+		sonido.play()
+		recibe_dano = false
+	
 	if Estado != "ganado":
 		ganado_pelea()
+		
 	
 	morirse()
 	

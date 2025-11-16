@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bmpkjcqjgfgem"]
+[gd_scene load_steps=28 format=3 uid="uid://bmpkjcqjgfgem"]
 
 [ext_resource type="Script" uid="uid://dg1nm3au23o4p" path="res://main.gd" id="1_he3go"]
 [ext_resource type="PackedScene" uid="uid://crxytexm1vya6" path="res://items.tscn" id="1_v0cdq"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://cr8mek82u4pyj" path="res://img/js animations/j2/def_j2.png" id="11_6vehg"]
 [ext_resource type="Texture2D" uid="uid://y5fgyvnswyq3" path="res://img/js animations/j2/atk_2_j2.png" id="12_hwldy"]
 [ext_resource type="Texture2D" uid="uid://cb6o3ugq11v3n" path="res://img/js animations/j2/gan_j2.png" id="13_hwldy"]
+[ext_resource type="AudioStream" uid="uid://dnf5iioaamamo" path="res://audio/Babymetal - Give Me Chocolate (Custom Karaoke Video) - Deep Bench Karaoke (mp3cut.net) (1).mp3" id="23_nhc1c"]
+[ext_resource type="AudioStream" uid="uid://dfk8twjwy5hfk" path="res://audio/golpe.mp3" id="24_l85vq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcg6a"]
 size = Vector2(1125.0009, 1814.6854)
@@ -116,7 +118,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -147,7 +149,7 @@ shape = SubResource("RectangleShape2D_lcg6a")
 position = Vector2(-36, -7)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_5kkbo")
-animation = &"gan"
+animation = &"idle"
 
 [node name="Jugador_2" type="CharacterBody2D" parent="." groups=["jugador", "jugador2"]]
 position = Vector2(900, 469)
@@ -163,8 +165,7 @@ shape = SubResource("RectangleShape2D_lcg6a")
 position = Vector2(7.5, -7)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_6vehg")
-animation = &"atk"
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="items" parent="." instance=ExtResource("1_v0cdq")]
 position = Vector2(635, 690)
@@ -180,3 +181,11 @@ position = Vector2(-36, 7)
 
 [node name="Node2D3" parent="." instance=ExtResource("9_bpisf")]
 z_index = -1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_nhc1c")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_l85vq")
+max_polyphony = 2

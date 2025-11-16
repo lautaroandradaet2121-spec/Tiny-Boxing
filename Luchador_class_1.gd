@@ -2,7 +2,7 @@ class_name Luchador_clase extends CharacterBody2D
 
 const puno1 = preload("res://puno_1.tscn")
 const puno2 = preload("res://puno_2.tscn")
-
+#var audio = get_parent().get_child(AudioStreamPlayer)
 
 # Propiedades del lucahdor
 @export var velocidad = 400
@@ -14,6 +14,8 @@ const puno2 = preload("res://puno_2.tscn")
 @export var muerto = false
 @export var contadores_a = 0
 @onready var golpes = 0
+@onready var recibe_dano = false
+
 
 var Izq = ""
 var Der = ""
@@ -95,8 +97,11 @@ func morirse():
 	
 
 func recibir_dano(dano, es_especial = false):
+	
+	
 	if Estado != "defendiendo" or es_especial == true:
 		vida -= dano
+		recibe_dano = true
 
 func mover():
 	var direccion = Input.get_axis(Izq, Der)

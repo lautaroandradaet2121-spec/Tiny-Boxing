@@ -3,6 +3,10 @@ const item_1 = preload("res://items.tscn")
 const item_2 = preload("res://item_vi.tscn")
 const item_3 = preload("res://item_especial.tscn")
 @onready var eliminador = $Node2D/StaticBody2D
+@onready var J1 = $Jugador_1
+@onready var J2 = $Jugador_2
+@onready var audio = $AudioStreamPlayer2D
+
 
 # contador
 var segundos : float
@@ -58,10 +62,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	Timer_crear_items(delta)	
 		
-	#await get_tree().create_timer(9.0).timeout
-	#crear_item()
-	#crear_item()
+	
+	if audio.playing == false:
+		audio.play()
+	Timer_crear_items(delta)	
+	if Input.is_action_just_pressed("Restart"):
+		get_tree().change_scene_to_file("res://menu.tscn")
+#		get_tree().reload_current_scene()
+
 
 	

@@ -1,7 +1,7 @@
 class_name J1 extends Luchador_clase
 @onready var animacion = $sprite_j1
 const especial1 = preload("res://especial_j1.tscn")
-
+@onready var sonido = $"../AudioStreamPlayer"
 func _ready() -> void:
 	Izq = "Izq_1"
 	Der = "Der_1"
@@ -39,8 +39,14 @@ func ganado_pelea():
 	
 func _physics_process(delta):
 	
+	if recibe_dano == true:
+		sonido.play()
+		recibe_dano = false
+	
 	if Estado != "ganado":
 		ganado_pelea()
+		
+
 		
 	morirse()
 	

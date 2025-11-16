@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://hd41ucvnsjw0"]
+
+[ext_resource type="Texture2D" uid="uid://dlwws76g85410" path="res://img_menu/bg_menu.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://dd437lbfa7h8r" path="res://menu.gd" id="1_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://dpg0btp5o2qun" path="res://img_menu/btn_botones.png" id="3_l48gv"]
+[ext_resource type="Texture2D" uid="uid://cvnlxmkafb1lb" path="res://img_menu/btn_jugar.png" id="4_ecwwl"]
+[ext_resource type="Texture2D" uid="uid://dndb5j31f4enr" path="res://img_menu/flechas_select.png" id="5_kk3ma"]
+[ext_resource type="AudioStream" uid="uid://dnf5iioaamamo" path="res://audio/Babymetal - Give Me Chocolate (Custom Karaoke Video) - Deep Bench Karaoke (mp3cut.net) (1).mp3" id="6_l48gv"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ytr4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.3333, 324.50003)
+scale = Vector2(0.600926, 0.600926)
+texture = ExtResource("1_lti8b")
+
+[node name="BtnBotones" type="Sprite2D" parent="."]
+position = Vector2(581.00006, 381)
+scale = Vector2(0.5180892, 0.5180892)
+texture = ExtResource("3_l48gv")
+
+[node name="BtnJugar" type="Sprite2D" parent="."]
+position = Vector2(581.00006, 341)
+scale = Vector2(0.5180892, 0.5180892)
+texture = ExtResource("4_ecwwl")
+
+[node name="FlechasSelect" type="Sprite2D" parent="."]
+position = Vector2(762, 530)
+scale = Vector2(0.33083504, 0.33083504)
+texture = ExtResource("5_kk3ma")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_l48gv")
+autoplay = true
