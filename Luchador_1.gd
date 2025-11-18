@@ -13,7 +13,7 @@ func _ready() -> void:
 func especial_atk():
 	
 	Estado = "especial"
-	if Estado != "defendiendo" and Estado != "atacando" and Mov_especial == true:
+	if Mov_especial == true:
 			
 		animacion.play("atk")
 		
@@ -27,6 +27,7 @@ func especial_atk():
 	await get_tree().create_timer(1).timeout
 	if Estado != "ganado":
 		Estado = "idle"
+	
 	
 func ganado_pelea():
 	var luchador = get_tree().get_nodes_in_group("jugador2")
@@ -80,12 +81,12 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed(especial) and Mov_especial == true:
 			self.especial_atk()
 	
-	if Estado != "ganado":		
-		move_and_slide()
+	move_and_slide()
 	
-		if Estado == "atacando" or Estado == "especial":
-			velocity.x = 0
-		
+	if Estado == "atacando" or Estado == "especial":
+		velocity.x = 0
+	
+	if Estado != "ganado" and Estado != "atacando":
 		if Input.is_action_just_pressed(defensa):
 			animacion.play("def")
 			self.defender()

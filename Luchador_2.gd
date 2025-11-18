@@ -18,7 +18,7 @@ func _ready() -> void:
 func especial_atk():
 	
 	Estado = "especial"
-	if Estado != "defendiendo" and Estado != "atacando" and Mov_especial == true:
+	if Mov_especial == true:
 			
 		animacion.play("atk")
 		
@@ -41,6 +41,9 @@ func ganado_pelea():
 			velocity.x = 0
 			Estado = "ganado"
 			animacion.play("gan")
+
+	
+
 	
 func _physics_process(delta):
 	
@@ -85,7 +88,7 @@ func _physics_process(delta):
 	if Estado == "atacando" or Estado == "especial":
 		velocity.x = 0
 	
-	if Estado != "ganado":
+	if Estado != "ganado" and Estado != "atacando":
 		if Input.is_action_just_pressed(defensa):
 			animacion.play("def")
 			self.defender()

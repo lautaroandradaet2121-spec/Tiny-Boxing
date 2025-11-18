@@ -2,16 +2,12 @@ extends Node
 const item_1 = preload("res://items.tscn")
 const item_2 = preload("res://item_vi.tscn")
 const item_3 = preload("res://item_especial.tscn")
-@onready var eliminador = $Node2D/StaticBody2D
-@onready var J1 = $Jugador_1
-@onready var J2 = $Jugador_2
 @onready var audio = $AudioStreamPlayer2D
 
 
 # contador
 var segundos : float
 var tiempoRestante : float
-var loopTimer : bool
 
 func crear_item():
 	var eleccion = randi_range(0,9)
@@ -48,14 +44,13 @@ func Timer_crear_items(delta):
 	
 	tiempoRestante -= delta
 	if tiempoRestante <= 0:
-		if loopTimer:
-			tiempoRestante = segundos
-			crear_item()
+
+		tiempoRestante = segundos
+		crear_item()
 		
 	
 	
 func _ready() -> void:
-	loopTimer = true
 	segundos = 3
 	
 #	print (eliminador)	

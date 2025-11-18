@@ -7,7 +7,6 @@ const puno2 = preload("res://puno_2.tscn")
 # Propiedades del lucahdor
 @export var velocidad = 400
 @export var vida = 10
-@export var Posicion = Vector2(0,0)
 @export var Mov_especial = false
 @export var Estado = "Idle"
 @export var Dano_golpe = 1
