@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c6rnr1idggaln" path="res://img/js animations/j1/def_j1.png" id="3_yums5"]
 [ext_resource type="Texture2D" uid="uid://cty2sxi83jciq" path="res://img/js animations/j1/atk_2_j1.png" id="4_6vehg"]
 [ext_resource type="Texture2D" uid="uid://2x7ibc2l0kv1" path="res://img/js animations/j1/idle_1_j1.png" id="4_lqllt"]
-[ext_resource type="PackedScene" uid="uid://bhjkkmatqc4p7" path="res://barra_vida_L1.tscn" id="4_sfsnc"]
 [ext_resource type="Texture2D" uid="uid://ce5cdfrqtih15" path="res://img/js animations/j2/atk_1_j2.png" id="4_tngu5"]
 [ext_resource type="Texture2D" uid="uid://opayss8wdk8e" path="res://img/js animations/j1/idle_2_j1.png" id="5_5kkbo"]
 [ext_resource type="Script" uid="uid://bklw8mhewkjcf" path="res://Luchador_2.gd" id="5_he3go"]
@@ -16,13 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://g71legvn2esp" path="res://item_vi.tscn" id="6_lcg6a"]
 [ext_resource type="Texture2D" uid="uid://dasvwnejkf6l5" path="res://img/js animations/j2/idle_2_j2.png" id="6_wdr72"]
 [ext_resource type="Texture2D" uid="uid://dujg0dqu27ktu" path="res://img/js animations/j2/cam_1_j2.png" id="7_lqllt"]
-[ext_resource type="PackedScene" uid="uid://dknbt1pwyen50" path="res://barra_vida_L2.tscn" id="8_4gk5g"]
 [ext_resource type="Texture2D" uid="uid://3bbhfusj2c3v" path="res://img/js animations/j1/cam_1_j1.png" id="8_rkuar"]
 [ext_resource type="PackedScene" uid="uid://bprow583wpn1l" path="res://Esenario.tscn" id="9_bpisf"]
 [ext_resource type="Texture2D" uid="uid://cr8mek82u4pyj" path="res://img/js animations/j2/def_j2.png" id="11_6vehg"]
 [ext_resource type="Texture2D" uid="uid://y5fgyvnswyq3" path="res://img/js animations/j2/atk_2_j2.png" id="12_hwldy"]
 [ext_resource type="Texture2D" uid="uid://cb6o3ugq11v3n" path="res://img/js animations/j2/gan_j2.png" id="13_hwldy"]
+[ext_resource type="PackedScene" uid="uid://brsyvfbdht8ck" path="res://barra_vidaL1.tscn" id="23_l85vq"]
 [ext_resource type="AudioStream" uid="uid://dnf5iioaamamo" path="res://audio/Babymetal - Give Me Chocolate (Custom Karaoke Video) - Deep Bench Karaoke (mp3cut.net) (1).mp3" id="23_nhc1c"]
+[ext_resource type="PackedScene" uid="uid://c256h8jnmpvaw" path="res://barra_vidaL2.tscn" id="24_au3oi"]
 [ext_resource type="AudioStream" uid="uid://dfk8twjwy5hfk" path="res://audio/golpe.mp3" id="24_l85vq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcg6a"]
@@ -149,7 +149,7 @@ shape = SubResource("RectangleShape2D_lcg6a")
 position = Vector2(-36, -7)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_5kkbo")
-animation = &"idle"
+animation = &"atk"
 
 [node name="Jugador_2" type="CharacterBody2D" parent="." groups=["jugador", "jugador2"]]
 position = Vector2(900, 469)
@@ -173,12 +173,6 @@ position = Vector2(635, 690)
 [node name="Node2D" parent="." instance=ExtResource("6_lcg6a")]
 position = Vector2(705, 682)
 
-[node name="barra_de_vida" parent="." instance=ExtResource("4_sfsnc")]
-position = Vector2(-22, 5)
-
-[node name="barra_vida_j2" parent="." instance=ExtResource("8_4gk5g")]
-position = Vector2(-36, 7)
-
 [node name="Node2D3" parent="." instance=ExtResource("9_bpisf")]
 z_index = -1
 
@@ -189,3 +183,13 @@ autoplay = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_l85vq")
 max_polyphony = 2
+
+[node name="barra_vidaL2" parent="." instance=ExtResource("23_l85vq")]
+offset_left = 783.0
+offset_right = 1062.0
+
+[node name="TextureProgressBar" parent="." instance=ExtResource("24_au3oi")]
+offset_left = 87.0
+offset_top = 57.0
+offset_right = 366.0
+offset_bottom = 111.0

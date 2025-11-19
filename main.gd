@@ -12,6 +12,7 @@ var tiempoRestante : float
 func crear_item():
 	var eleccion = randi_range(0,9)
 	
+	
 	if eleccion >= 0 and eleccion <= 4:
 		var nuevo_item = item_1.instantiate()
 	
@@ -61,7 +62,11 @@ func _process(delta: float) -> void:
 	
 	if audio.playing == false:
 		audio.play()
-	Timer_crear_items(delta)	
+	var luchador = get_tree().get_nodes_in_group("jugador")
+	for lucha in luchador:
+		if lucha.Estado != "ganado":
+			Timer_crear_items(delta)	
+
 	if Input.is_action_just_pressed("Restart"):
 		get_tree().change_scene_to_file("res://menu.tscn")
 #		get_tree().reload_current_scene()

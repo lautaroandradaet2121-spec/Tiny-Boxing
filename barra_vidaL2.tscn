@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c256h8jnmpvaw"]
+
+[ext_resource type="Texture2D" uid="uid://csfp2tjxrx2lh" path="res://img/barra_vida.png" id="1_42c5p"]
+[ext_resource type="Texture2D" uid="uid://liklq4bd3f71" path="res://img/color_barra.png" id="2_7ggoo"]
+[ext_resource type="Script" uid="uid://5pqmbncbidij" path="res://Vida_Lu2.gd" id="3_42c5p"]
+[ext_resource type="Texture2D" uid="uid://cv2rwdtjrugk3" path="res://img/puno_1_vida.png" id="4_42c5p"]
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+offset_left = 122.0
+offset_top = 38.0
+offset_right = 401.0
+offset_bottom = 92.0
+max_value = 10.0
+value = 10.0
+fill_mode = 1
+texture_over = ExtResource("1_42c5p")
+texture_progress = ExtResource("2_7ggoo")
+script = ExtResource("3_42c5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(323.99997, 24)
+scale = Vector2(0.724359, 0.724359)
+texture = ExtResource("4_42c5p")
+flip_h = true
