@@ -17,8 +17,9 @@ func _ready() -> void:
 
 func especial_atk():
 	
-	Estado = "especial"
 	if Mov_especial == true:
+		
+		Estado = "especial"
 			
 		animacion.play("atk")
 		
@@ -80,7 +81,6 @@ func _physics_process(delta):
 	if Estado != "defendiendo" and Estado != "atacando" and Estado != "especial" and Estado != "ganado":
 		if Input.is_action_just_pressed(especial) and Mov_especial == true:
 			self.especial_atk()
-			animacion.play("atk")
 	
 	controles()
 	animaciones()

@@ -2,6 +2,7 @@ class_name J1 extends Luchador_clase
 @onready var animacion = $sprite_j1
 const especial1 = preload("res://especial_j1.tscn")
 @onready var sonido = $"../AudioStreamPlayer"
+
 func _ready() -> void:
 	Izq = "Izq_1"
 	Der = "Der_1"
@@ -12,9 +13,10 @@ func _ready() -> void:
 
 func especial_atk():
 	
-	Estado = "especial"
 	if Mov_especial == true:
 			
+		Estado = "especial"
+		
 		animacion.play("atk")
 		
 		var nuevo_especial = especial1.instantiate()
@@ -76,7 +78,6 @@ func _physics_process(delta):
 	if Estado != "defendiendo" and Estado != "atacando" and Estado != "especial" and Estado != "ganado":
 		if Input.is_action_just_pressed(especial) and Mov_especial == true:
 			self.especial_atk()
-			animacion.play("atk")
 	
 	controles()
 	animaciones()
