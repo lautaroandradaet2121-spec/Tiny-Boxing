@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bmpkjcqjgfgem"]
+[gd_scene load_steps=29 format=3 uid="uid://bmpkjcqjgfgem"]
 
 [ext_resource type="Script" uid="uid://dg1nm3au23o4p" path="res://main.gd" id="1_he3go"]
 [ext_resource type="PackedScene" uid="uid://crxytexm1vya6" path="res://items.tscn" id="1_v0cdq"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://dnf5iioaamamo" path="res://audio/Babymetal - Give Me Chocolate (Custom Karaoke Video) - Deep Bench Karaoke (mp3cut.net) (1).mp3" id="23_nhc1c"]
 [ext_resource type="PackedScene" uid="uid://c256h8jnmpvaw" path="res://barra_vidaL2.tscn" id="24_au3oi"]
 [ext_resource type="AudioStream" uid="uid://dfk8twjwy5hfk" path="res://audio/golpe.mp3" id="24_l85vq"]
+[ext_resource type="AudioStream" uid="uid://jy0tqknk487o" path="res://audio/miaupuntoemepetres.mp3" id="25_au3oi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcg6a"]
 size = Vector2(1125.0009, 1814.6854)
@@ -165,7 +166,7 @@ shape = SubResource("RectangleShape2D_lcg6a")
 position = Vector2(7.5, -7)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_6vehg")
-animation = &"idle"
+animation = &"atk"
 
 [node name="items" parent="." instance=ExtResource("1_v0cdq")]
 position = Vector2(635, 690)
@@ -193,3 +194,7 @@ offset_left = 87.0
 offset_top = 57.0
 offset_right = 366.0
 offset_bottom = 111.0
+
+[node name="miau" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(87, 57)
+stream = ExtResource("25_au3oi")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://k1wmqt4u7ufi"]
+
+[ext_resource type="Script" uid="uid://dfaisxt0bjh6h" path="res://gato_egg.gd" id="1_16n3o"]
+[ext_resource type="Texture2D" uid="uid://bnmhy6jwjnwa4" path="res://img/gatito.jpg" id="2_1jg3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16n3o"]
+size = Vector2(145.5, 168)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_16n3o")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(9.536743e-07, 1.9073486e-06)
+scale = Vector2(0.33392432, 0.3651386)
+texture = ExtResource("2_1jg3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1.75, 0)
+shape = SubResource("RectangleShape2D_16n3o")
+disabled = true

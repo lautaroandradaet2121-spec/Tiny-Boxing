@@ -2,7 +2,10 @@ extends Node
 const item_1 = preload("res://items.tscn")
 const item_2 = preload("res://item_vi.tscn")
 const item_3 = preload("res://item_especial.tscn")
+const gato_egg = preload("res://gato_egg.tscn")
+var contador_egg = 0
 @onready var audio = $AudioStreamPlayer2D
+@onready var audio_miau = $miau
 
 
 # contador
@@ -48,8 +51,19 @@ func Timer_crear_items(delta):
 
 		tiempoRestante = segundos
 		crear_item()
-		
+
+func easter_egg():
 	
+	if Input.is_key_pressed(KEY_G) and Input.is_key_pressed(KEY_A) and Input.is_key_pressed(KEY_T) and Input.is_key_pressed(KEY_O) and contador_egg == 0:
+		contador_egg = 1
+		var gato_eggs = gato_egg.instantiate()
+		gato_eggs.position = Vector2(1300, 300)
+		add_child(gato_eggs)
+		audio_miau.play()
+		
+		await get_tree().create_timer(3).timeout
+		
+		contador_egg = 0
 	
 func _ready() -> void:
 	segundos = 3
@@ -59,7 +73,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 		
-	
+	easter_egg()
 	if audio.playing == false:
 		audio.play()
 	var luchador = get_tree().get_nodes_in_group("jugador")
