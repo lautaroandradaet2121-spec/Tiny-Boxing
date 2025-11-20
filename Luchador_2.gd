@@ -43,10 +43,29 @@ func ganado_pelea():
 			animacion.play("gan")
 
 	
+func animaciones():
+	if Estado == "atacando" and contador_ani == 0:
+		animacion.play("atk")
+		contador_ani = 1
+		await get_tree().create_timer(1.5).timeout
+		contador_ani = 0
+			
+	if velocity.x != 0:
+		animacion.play("move")
+	
+	if Estado != "atacando" and Estado != "especial":
+		if velocity.x == 0:
+			if Estado != "ganado":
+				animacion.play("idle")
+			
+	
+	
+
+	if Estado == "defendiendo":
+		animacion.play("def")
 
 	
 func _physics_process(delta):
-	
 	if recibe_dano == true:
 		sonido.play()
 		recibe_dano = false
@@ -59,41 +78,10 @@ func _physics_process(delta):
 	
 	recarga_esp()
 	if Estado != "defendiendo" and Estado != "atacando" and Estado != "especial" and Estado != "ganado":
-		
-		mover()
-		
-		
-			
-		if Input.is_action_just_pressed(golpe):
-			Estado = "atacando"
-			animacion.play("atk")
-			await get_tree().create_timer(0.3).timeout
-			self.pegar()
-			await get_tree().create_timer(1).timeout
-			if Estado != "ganado":
-				Estado = "Idle"
-				
-		if velocity.x != 0:
-			animacion.play("move")
-		if velocity.x == 0:
-			if Estado != "ganado":
-				animacion.play("idle")
-				Estado = "Idle"
-			
 		if Input.is_action_just_pressed(especial) and Mov_especial == true:
 			self.especial_atk()
-			
-	move_and_slide()
+			animacion.play("atk")
 	
-	if Estado == "atacando" or Estado == "especial":
-		velocity.x = 0
+	controles()
+	animaciones()
 	
-	if Estado != "ganado" and Estado != "atacando":
-		if Input.is_action_just_pressed(defensa):
-			animacion.play("def")
-			self.defender()
-		
-		if Input.is_action_just_released(defensa):
-			animacion.play("idle")
-			Estado = "Idle"
-		

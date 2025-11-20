@@ -1,9 +1,20 @@
 class_name items extends RigidBody2D
-@export var posision = Vector2(0, 0)
 
+func accion(body):
+	pass
 
+func _ready() -> void:
+	self.body_entered.connect(_on_body_entered)
 
-
+func _on_body_entered(body: Node2D):
+	print("colisiona")
+		
+	if body.is_in_group("jugador"):
+		self.accion(body)
+		self.queue_free()
+		
 func _physics_process(delta: float) -> void:
 	if position.y >= 700:
 		self.queue_free()
+	
+	

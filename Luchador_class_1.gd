@@ -14,7 +14,7 @@ const puno2 = preload("res://puno_2.tscn")
 @export var contadores_a = 0
 @onready var golpes = 0
 @onready var recibe_dano = false
-
+var contador_ani = 0
 
 var Izq = ""
 var Der = ""
@@ -112,3 +112,41 @@ func mover():
 		
 		
 	#velocity = input_direction * speed
+
+
+func controles():
+	if Estado != "defendiendo" and Estado != "atacando" and Estado != "especial" and Estado != "ganado":
+		
+		mover()
+		
+		
+			
+		if Input.is_action_just_pressed(golpe):
+			Estado = "atacando"
+	
+			await get_tree().create_timer(0.3).timeout
+			self.pegar()
+			await get_tree().create_timer(1).timeout
+			if Estado != "ganado":
+				Estado = "Idle"
+				
+
+		if velocity.x == 0:
+			if Estado != "ganado":
+				Estado = "Idle"
+			
+
+			
+	move_and_slide()
+	
+	if Estado == "atacando" or Estado == "especial":
+		velocity.x = 0
+	
+	if Estado != "ganado" and Estado != "atacando":
+		if Input.is_action_just_pressed(defensa):
+
+			self.defender()
+		
+		if Input.is_action_just_released(defensa):
+
+			Estado = "Idle"
